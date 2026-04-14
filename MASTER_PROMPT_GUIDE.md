@@ -206,9 +206,46 @@ What actually breaks, and how to prevent it in the prompt:
 
 ---
 
+## PART 9 — IPHONE CALL SCREENING (REQUIRED FOR ALL OUTBOUND)
+
+Every outbound agent MUST handle Apple iPhone call screening. Full module: `templates/MODULE-iphone-call-screening.md`
+
+**Quick summary:** When the first response is an automated iOS screening prompt ("Please state your name," "Record your reason for calling"), the agent says ONLY: "Hi, this is [agent name]. I'm returning a call." Then STOPS. Waits silently up to 30 seconds for a live human. Never pitches, never explains, never mentions the company during screening. This 30-second wait is intentional and required — it does NOT count as dead air or a failure condition.
+
+---
+
+## PART 10 — SALES PSYCHOLOGY HOOKS (REQUIRED READING)
+
+Every agent prompt must use psychology-driven hooks, not generic openers. Full library: `templates/MODULE-sales-psychology-hooks.md`
+
+**Minimum requirements per prompt:**
+1. **Pattern-interrupt opener** — never "Hi, is this first_name?" as the hook. Use a curiosity hook, speed flex, test-me hook, or something unexpected.
+2. **Time Contract** — give them a specific number of seconds + what they get. "43 seconds, 3 questions, and you'll know if this is worth your time."
+3. **Permission closes** — "Sound good?" "Fair enough?" throughout the call (minimum 3).
+4. **SPIN discovery** — Situation → Problem → Implication → Need-payoff in qualification.
+5. **Loss aversion math** — calculate what they're LOSING before asking for the appointment.
+6. **Assumptive Bridge** — never ask IF they want to proceed, ask WHEN/HOW.
+7. **Silence Bomb** — "Anything I didn't cover?" then SHUT UP for 5 seconds.
+8. **Never ask the same question twice** — context awareness is non-negotiable.
+9. **Pause after every question** — ask, then stop talking. Wait for the full response.
+
+---
+
+## PART 11 — GENERATING NEW PROMPTS
+
+Use the `/new-voice-ai-prompt` skill in Claude Code. It reads all reference files, asks 7 questions (offer, marketing strategy, agent name, transfer vs booking, company, timezone, AI disclosure), and generates a complete 12-section prompt with sales psychology baked in.
+
+Full generation rules: `templates/GENERATION-ENGINE.md`
+
+---
+
 ## REFERENCES
 
 - **Canonical example:** `examples/marketing_strategist_kickoff.md` — the gold standard, study this
 - **Section format:** `templates/00-RIZZDIAL-SECTION-STRUCTURE.md`
 - **Dev spec:** `templates/BUILD-A-BOT-DEV-SPEC.md`
 - **Production templates:** `templates/01-10*.md` — start from the closest match, adapt
+- **iPhone screening:** `templates/MODULE-iphone-call-screening.md`
+- **Sales psychology hooks:** `templates/MODULE-sales-psychology-hooks.md`
+- **Generation engine:** `templates/GENERATION-ENGINE.md`
+- **Skill:** `/new-voice-ai-prompt` — Claude Code slash command for generating prompts

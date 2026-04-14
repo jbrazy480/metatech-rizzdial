@@ -7,6 +7,10 @@ credentials*
 *secret*
 *.p12
 
+# Client data — private, never push
+clients/
+AI agents/
+
 # OS
 .DS_Store
 Thumbs.db

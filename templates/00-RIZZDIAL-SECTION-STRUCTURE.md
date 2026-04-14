@@ -24,6 +24,18 @@
 
 ---
 
+## Standard Modules (include in every outbound agent)
+
+- **iPhone Call Screening** (`MODULE-iphone-call-screening.md`) — Goes in **Critical Instructions / Guardrails**. Detects Apple iOS call screening, responds with name only, waits silently for a live human, and never pitches a robot. Required for all outbound agents.
+- **Sales Psychology Hooks** (`MODULE-sales-psychology-hooks.md`) — Reference library of openers, frameworks (Hormozi, Belfort, Sandler, SPIN, Cialdini, Voss), and mid-call power moves. Pull hooks from here into **Greetings** and **Script** sections.
+
+## Generation System
+
+- **Generation Engine** (`GENERATION-ENGINE.md`) — The complete instruction set for generating production-ready prompts. Section-by-section guide, quality checklist, and all non-negotiable rules.
+- **Skill:** `/new-voice-ai-prompt` — Claude Code slash command that walks you through generating a prompt. Asks 7 questions, reads all reference files, and outputs a complete 12-section prompt.
+
+---
+
 ## Authoring Rules
 - **One question at a time.** Always. This is the #1 guardrail in the builder default.
 - Use `~"..."` for spoken lines so the agent treats them as natural-language guides, not literal strings.

@@ -1,48 +1,146 @@
-# MetaTech AI — Master Prompt Library
+# RizzDial — Voice AI Prompt Engine
 
-Everything we've learned building RizzDial voice AI agents that actually close deals at scale (100k+ calls/day).
+Everything we've learned building voice AI agents that actually close deals at scale (100k+ calls/day). This repo is the **single source of truth** for how we write voice AI prompts at MetaTech AI.
 
-This repo is the **single source of truth** for how we write voice AI prompts at MetaTech AI. If you're building a new agent, read `MASTER_PROMPT_GUIDE.md` first, then grab the closest match from `templates/` and adapt it.
+Built from: Hormozi, Belfort, Sandler, SPIN Selling, Cialdini, Chris Voss, Grant Cardone, and lessons from 100,000+ calls per day on RizzDial.
 
-## Structure
+---
+
+## Quick Start (Claude Code)
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/jbrazy480/metatech-rizzdial.git
+cd metatech-rizzdial
+```
+
+### 2. Copy the skill into your Claude Code commands
+```bash
+# Create the commands directory if it doesn't exist
+mkdir -p .claude/commands
+
+# Copy the skill file
+cp .claude/commands/new-voice-ai-prompt.md /path/to/your/project/.claude/commands/
+```
+
+Or if you want the skill available globally (across all projects):
+```bash
+mkdir -p ~/.claude/commands
+cp .claude/commands/new-voice-ai-prompt.md ~/.claude/commands/
+```
+
+### 3. Run the skill
+Open Claude Code and type:
+```
+/new-voice-ai-prompt
+```
+
+It will:
+1. Ask you 7 questions, one at a time (your offer, marketing strategy, agent name, transfer vs booking, company, timezone, AI disclosure)
+2. Read all the reference files (master guide, hooks library, iPhone screening, section structure)
+3. Generate a complete 12-section voice AI prompt ready to paste into RizzDial's builder UI
+
+---
+
+## What's in This Repo
 
 ```
 .
-├── MASTER_PROMPT_GUIDE.md     # THE rules — read this first, every time
-├── templates/                 # Production-ready agent templates by use case
-│   ├── 00-RIZZDIAL-SECTION-STRUCTURE.md   # The 12-section Retell builder format
-│   ├── 01-speed-to-lead-live-transfer.md
-│   ├── 02-speed-to-lead-booking.md
-│   ├── 03-speed-to-lead-both.md
-│   ├── 04-no-show-recovery.md
-│   ├── 05-360-nurture.md
-│   ├── 06-annual-reengagement.md
-│   ├── 07-appointment-reminder-2hr.md
-│   ├── 08-post-sale-welcome.md
-│   ├── 09-appointment-no-show-v2.md
-│   ├── 10-database-reactivation.md
-│   ├── BUILD-A-BOT-DEV-SPEC.md
-│   └── README.md
+├── MASTER_PROMPT_GUIDE.md              # THE rules — read this first, every time
+├── .claude/
+│   └── commands/
+│       └── new-voice-ai-prompt.md      # The /new-voice-ai-prompt skill for Claude Code
+├── templates/
+│   ├── 00-RIZZDIAL-SECTION-STRUCTURE.md    # The 12-section builder format + authoring rules
+│   ├── GENERATION-ENGINE.md                # Full generation rulebook (section-by-section guide + quality checklist)
+│   ├── MODULE-iphone-call-screening.md     # iPhone screening handler (required for all outbound agents)
+│   ├── MODULE-sales-psychology-hooks.md    # Hooks, openers, and frameworks library
+│   ├── 01-speed-to-lead-live-transfer.md   # Template: new lead → qualify → transfer to rep
+│   ├── 02-speed-to-lead-booking.md         # Template: new lead → qualify → book appointment
+│   ├── 03-speed-to-lead-both.md            # Template: new lead → try transfer, book if unavailable
+│   ├── 04-no-show-recovery.md              # Template: missed appointment → reconnect → reschedule
+│   ├── 05-360-nurture.md                   # Template: old lead → re-engage → move to next step
+│   ├── 06-annual-reengagement.md           # Template: yearly check-in with past contacts
+│   ├── 07-appointment-reminder-2hr.md      # Template: 2-hour appointment reminder
+│   ├── 08-post-sale-welcome.md             # Template: onboarding call after purchase
+│   ├── 09-appointment-no-show-v2.md        # Template: no-show recovery v2
+│   ├── 10-database-reactivation.md         # Template: reactivate cold leads with new offer
+│   ├── BUILD-A-BOT-DEV-SPEC.md             # Dev spec for automated prompt assembly
+│   └── README.md                           # Template-specific docs
 └── examples/
-    └── marketing_strategist_kickoff.md   # Canonical reference — the gold standard
+    └── marketing_strategist_kickoff.md     # Canonical example — the gold standard prompt
 ```
 
-## How to use this with Claude Code
+---
 
-When you want Claude to build a new voice agent for you, say:
+## The 12 RizzDial Builder Sections
 
-> "Read `MASTER_PROMPT_GUIDE.md` and `examples/marketing_strategist_kickoff.md`, then build me a [role] agent in the 12-section format."
+Every prompt is pre-sliced into these 12 sections, matching the RizzDial agent builder UI exactly:
 
-Claude will follow the rules, structure, and voice every time.
+| # | Section | What Goes Here |
+|---|---------|---------------|
+| 1 | **Project Instructions / Request** | Mission, who they talk to, objectives, timezone |
+| 2 | **Greetings** | The opening line(s) — must be a pattern-interrupt hook |
+| 3 | **Call Flow** | Ordered stages + golden rules (no script lines) |
+| 4 | **Character** | Agent name, personality, voice, mindset |
+| 5 | **Transfer Call** | When/how to hand off to a human (or N/A) |
+| 6 | **Critical Instructions / Guardrails** | Hard rules, iPhone screening, one-question-at-a-time, exit rules |
+| 7 | **Custom Field References** | CRM variables, GHL field mappings, tags |
+| 8 | **What Your Company Does** | Elevator pitch (15-20 seconds) |
+| 9 | **Script** | Actual spoken dialogue with emoji-tagged stages |
+| 10 | **Objection Handling** | Common objections + psychology-driven responses |
+| 11 | **Booking flow** | GHL calendar booking logic |
+| 12 | **FAQ / Knowledge Base** | Q&A for off-script questions |
 
-## Golden rules (the short version)
+---
+
+## Sales Psychology Built In
+
+Every prompt generated by this system uses:
+
+- **Pattern-Interrupt Openers** — never generic "Hi is this [name]?" Every call opens with a hook that stops their brain from auto-rejecting.
+- **The Time Contract** — "Give me 43 seconds and 3 questions..." Specific numbers build trust.
+- **SPIN Discovery** — Situation → Problem → Implication → Need-payoff in qualification.
+- **Loss Aversion Math** — Calculate what they're LOSING before asking for the appointment. People are 2x more motivated to avoid losing than to gain.
+- **Permission Closes** — "Sound good?" throughout the call. Each "yes" is a micro-commitment.
+- **The Assumptive Bridge** — Never ask IF they want to proceed. Ask WHEN/HOW.
+- **The Silence Bomb** — "Anything I didn't cover?" then shut up for 5 seconds. They'll reveal their real objection.
+- **iPhone Call Screening** — Detects iOS screening, responds with name only, waits silently 30 seconds for a live human. Never pitches a robot.
+
+---
+
+## Golden Rules (The Short Version)
 
 1. **One question at a time.** Ask → stop → wait → react → next. Never stack.
 2. **Never speak a variable name out loud.** If `{{client_name}}` is empty, skip the sentence.
-3. **Complete every section. No skipping.** Especially creative/Section F.
+3. **Complete every section. No skipping.** All 12 sections filled.
 4. **Dig on insights.** When a business-changing detail drops, break script and ask 2-3 follow-ups.
 5. **Silence is your friend.** After a question, shut up and wait.
 6. **Sound human.** Disfluencies, contractions, real reactions. Never "as an AI."
-7. **12-section Retell format** for every prompt, every time.
+7. **Never ask the same question twice.** If they answered it 20 minutes ago, confirm — don't re-ask.
+8. **Pause after every question.** Do not fill the gap. Do not rephrase after 2 seconds.
+9. **The prompt IS the product demo.** If it sounds robotic, the product sells itself poorly.
 
 Full detail in `MASTER_PROMPT_GUIDE.md`.
+
+---
+
+## Using Without Claude Code
+
+If you're not using Claude Code, you can still use this repo:
+
+1. Read `MASTER_PROMPT_GUIDE.md` to understand the rules
+2. Pick the closest template from `templates/01-10` for your use case
+3. Replace the `**BOLD PLACEHOLDERS**` with your business details
+4. Add the iPhone screening block from `MODULE-iphone-call-screening.md` into your Guardrails section
+5. Reference `MODULE-sales-psychology-hooks.md` for better openers and closing techniques
+6. Use `GENERATION-ENGINE.md` as your generation rulebook if feeding this to any other AI
+
+Or just feed any AI model these instructions:
+> "Read MASTER_PROMPT_GUIDE.md, GENERATION-ENGINE.md, MODULE-sales-psychology-hooks.md, and MODULE-iphone-call-screening.md. Then build me a [use case] agent for [business] in the 12-section format."
+
+---
+
+## License
+
+Proprietary — MetaTech AI. For authorized use only.
