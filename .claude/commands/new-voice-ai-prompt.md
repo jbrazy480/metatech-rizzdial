@@ -43,10 +43,12 @@ Ask the user for the following — ONE question at a time. Do NOT combine questi
 
 → Wait for response. Move to Question 4.
 
-**Question 4 — Transfer or Booking:**
-"When a lead is qualified, should the agent: (A) Transfer to a live rep, (B) Book an appointment, or (C) Try transfer first, then book if the rep is unavailable?"
+**Question 4 — Transfer, Booking, or Webinar Invite:**
+"When a lead is qualified, should the agent: (A) Transfer to a live rep, (B) Book an appointment, (C) Try transfer first, then book if the rep is unavailable, or (D) Invite them to a webinar/workshop and send a registration link?"
 
-→ Wait for response. Move to Question 5.
+→ Wait for response.
+→ If they pick (D) webinar invite, ask: "Got it — what's the webinar/workshop about? Who's the host? And how long is it?" Wait for response. This shapes the curiosity hooks.
+→ Move to Question 5.
 
 **Question 5 — Company & Industry:**
 "What company name does the agent represent? And what industry or vertical? (e.g., 'Bright Smile Dental — dental practice')"

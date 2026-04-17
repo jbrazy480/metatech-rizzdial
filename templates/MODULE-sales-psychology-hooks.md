@@ -185,7 +185,82 @@ At the end of every call, ask: "Anything I didn't cover that you were expecting 
 
 ---
 
-## PART 5 — UNIVERSAL RULES FOR ALL HOOKS
+## PART 5 — ADVANCED FRAMEWORKS (From Live Agent Deployments)
+
+### Framework 9: Tease, Don't Teach (Curiosity Gap Engine)
+
+When the goal is to get them to a NEXT step (webinar, consultation, demo, transfer), NEVER satisfy the curiosity on this call. Create a gap, then make the next step the only way to fill it.
+
+**The rule:** Drop enough to make them desperate to hear the rest. Never drop enough to satisfy.
+
+~"Jeff breaks down something called the TLU method — it's how he personally accessed over a million in funding without providing any financial docs. Like, the actual step-by-step."
+→ They want to know HOW. But you don't tell them. The webinar tells them.
+
+~"We've got a system that most funding companies don't even know about. I can't really do it justice over the phone, but that's exactly what the workshop covers."
+→ Tease the existence. Defer the explanation.
+
+**Good:** "He goes through the exact method, step by step. It's free, 45 minutes."
+**Bad:** "So the method works by applying to these specific banks in this order..." → NEVER.
+
+Use when: webinar invites, consultation bookings, demo scheduling, anything where the REAL sell happens on a different call or event.
+
+### Framework 10: The Forced Choice Binary (Dead Air Killer)
+
+Instead of open-ended openers that create awkward silence, give them exactly two paths. Both paths keep the conversation alive.
+
+~"Are you still looking into getting funding, or did you already get that handled?"
+- "Still looking" → they just re-qualified themselves. Proceed.
+- "Already handled" → graceful pivot: "Oh nice. Quick thing though..."
+- There's no third option that kills the call.
+
+~"Are mornings or afternoons usually better for you?"
+- Either answer moves forward. Neither answer is "no."
+
+~"Would you rather I text you the link, or should I email it?"
+- Both options = they're getting the link.
+
+### Framework 11: Investment Bias (Question Capture)
+
+After someone commits to a next step, ask them what SPECIFIC thing they want to learn/discuss/get help with. Once they verbalize it, they've psychologically invested in showing up.
+
+~"Quick thing — is there anything specific you'd want them to cover? Like, any questions you've been trying to figure out?"
+
+**Why it works:** People who verbalize a specific question are 3x more likely to follow through because now they have a PERSONAL reason — not just general interest. They'll think "I need to show up because they're going to answer MY question."
+
+Use after: webinar registration, appointment booking, consultation scheduling. ALWAYS before hanging up.
+
+### Framework 12: AI Disclosure as a Flex
+
+When the business IS a tech/AI/automation company (or uses it as a differentiator), turn the "are you AI?" question into a selling point instead of a defensive answer.
+
+~"Ha, yeah — guilty. And honestly, the fact that we're using AI to reach out should tell you something about what we're doing with technology on the [industry] side. The workshop actually gets into some of that."
+
+This only works when AI/tech IS the product or part of the value prop. For non-tech businesses, use the standard truthful or deflect disclosure.
+
+### Framework 13: The "Send It Anyway" Low-Friction Close
+
+On soft objections ("I'll think about it," "maybe," "not sure"), send the link/info ANYWAY. Don't ask permission twice. Just send it and remove all friction.
+
+~"Yeah, totally. Let me just text you the link so you've got it — that way if you decide to check it out, you don't have to track anything down. No pressure at all."
+
+**Why:** People who say "I'll think about it" rarely do — unless the thing is sitting in their text messages waiting for them at 10 PM when they can't sleep. Remove every barrier between "maybe" and "yes."
+
+### Framework 14: Emotional Intelligence Matching
+
+Explicitly match your energy and approach to the prospect's emotional state. Not just "mirror" — actively ADAPT the entire delivery.
+
+| Prospect Mood | Your Move |
+|---|---|
+| **Excited / eager** | Match speed. Move fast. Get to the point quickly. ~"Love it — let me shoot you the link right now." |
+| **Skeptical / guarded** | Don't argue. Tease harder. Lower the stakes. ~"Worst case you learn something new." |
+| **Busy / rushed** | Ultra-fast pitch. Respect their time visibly. ~"Super quick — [one sentence hook]. Want me to text you the link? Takes two seconds." |
+| **Confused / lost** | Simplify everything. ~"It's basically a free online class where [person] shows you [result]. No cost. Want the link?" |
+| **Defeated / emotional** | Lead with empathy. Slow down. ~"I hear you. That's exactly why this exists." |
+| **Hostile / annoyed** | One respectful attempt, then graceful exit. Never match anger. |
+
+---
+
+## PART 6 — UNIVERSAL RULES FOR ALL HOOKS
 
 1. **Odd numbers > round numbers.** "43 seconds" not "about a minute." "3 questions" not "a few questions."
 2. **Questions > statements.** "How does your team handle follow-up right now?" beats "We handle follow-up better."

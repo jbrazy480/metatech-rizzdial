@@ -19,7 +19,7 @@ How the client acquires leads — ad channels, targeting, messaging, creative ho
 
 ### 3. Agent Configuration (Asked During Skill Flow)
 - **Agent Name:** What the AI introduces itself as (e.g., "Eric," "Mikayla," "Jordan")
-- **Use Case:** One of: `speed-to-lead-transfer` | `speed-to-lead-booking` | `speed-to-lead-both` | `no-show-recovery` | `nurture-360` | `database-reactivation` | `appointment-reminder` | `post-sale-welcome` | `custom`
+- **Use Case:** One of: `speed-to-lead-transfer` | `speed-to-lead-booking` | `speed-to-lead-both` | `no-show-recovery` | `nurture-360` | `database-reactivation` | `appointment-reminder` | `post-sale-welcome` | `webinar-invite` | `custom`
 - **Company Name:** The business the agent represents
 - **Industry/Vertical:** What kind of business (medspa, HVAC, insurance, real estate, etc.)
 - **Timezone:** Agent's operating timezone
@@ -91,17 +91,42 @@ After asking any question, the agent STOPS TALKING. Does not rephrase. Does not 
 - **Nurture/reactivation:** Use the "Something Changed" hook or "Check-In Not Chase" hook
 - **Appointment reminder:** Casual, warm, "just making sure you're all set"
 - **Post-sale welcome:** Celebratory, onboarding-focused
+- **Webinar invite:** Use the Forced Choice Binary opener ("still looking for X or did you get that handled?") + Tease Don't Teach + Investment Bias question capture. High energy, under 90 seconds.
 - For RizzDial's own agents (selling RizzDial): Use the "Test Me" hook — "You wanted to test me out. How do I sound so far?"
 
 ### Rule 9: Objection handling uses real psychology
 Every objection response must:
 - Acknowledge the objection (don't argue)
 - Isolate the real concern ("Is it the timing, the investment, or whether it'll work?")
-- Reframe using one of: loss aversion, social proof, takeaway, or ROI math
+- Reframe using one of: loss aversion, social proof, takeaway, curiosity tease, or ROI math
 - End with a question that moves forward (never end on a statement)
+- On soft objections ("I'll think about it," "maybe"), use the "Send It Anyway" technique — send the link/info regardless and remove all friction
 
 ### Rule 10: The prompt is the product demo
 For any company selling AI/automation/RizzDial, the call itself IS the demo. The agent must perform so well that the prospect thinks "if this is what their AI can do on a call, imagine what it'll do for MY business." Every interaction reinforces the product quality.
+
+### Rule 11: Emotional Intelligence matching is explicit
+Every prompt must include an emotional intelligence section (in Character or Guardrails) that tells the agent how to adapt based on the prospect's mood:
+- Excited → match speed, move fast
+- Skeptical → don't argue, tease harder, lower stakes
+- Busy → ultra-fast pitch, respect time visibly
+- Confused → simplify everything
+- Defeated/emotional → lead with empathy, slow down
+- Hostile → one respectful attempt, then graceful exit
+
+### Rule 12: Disfluencies go IN the script lines
+Natural disfluencies ("um," "uh," "like," "yeah," "you know," "I mean") must be woven directly into the `~"..."` spoken lines in the Script, Objection Handling, and FAQ sections — not just described in the Character section. Roughly 1 disfluency every 3-4 sentences. This makes the agent sound human in PRACTICE, not just in theory.
+
+### Rule 13: Webinar/event invite prompts use specialized flow
+For webinar invite use cases:
+- The agent's job is to CREATE CURIOSITY and get registration — NOT to sell the product/service
+- Use the "Tease, Don't Teach" framework — drop enough to hook them, never enough to satisfy
+- Use the Forced Choice Binary opener to re-qualify ("still looking or got it handled?")
+- After registration, use Investment Bias question capture ("what do you want them to cover?")
+- Set expectations for what happens on the webinar/event
+- On soft objections, send the link anyway ("Send It Anyway" technique)
+- Transfer Call section = N/A. Booking section = N/A (unless booking a call is the backup)
+- Keep under 90 seconds — this is a quick invite, not a consultation
 
 ---
 
