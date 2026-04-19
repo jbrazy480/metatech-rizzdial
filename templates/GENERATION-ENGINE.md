@@ -62,6 +62,9 @@ Every prompt MUST include:
 ### Rule 4: iPhone Call Screening is included in ALL outbound agents
 The full iPhone screening module goes into Critical Instructions / Guardrails for every outbound agent. No exceptions.
 
+### Rule 4.5: Industry-specific discovery questions are pulled from the question bank
+When generating qualification and discovery questions, check `MODULE-industry-discovery-questions.md` for the client's industry vertical. If a match exists (B2B SaaS, Insurance, HVAC/Home Services, Marketing Agency, Medical/Wellness, Real Estate), pull the Situation, Problem, Consequence, and Commitment questions from that vertical and adapt them to the agent's voice. Also pull the industry-specific pricing deflection for the FAQ section. For verticals NOT in the bank, use the Universal Consultative Structure at the bottom of the module as a skeleton.
+
 ### Rule 5: The Master Prompt Rules override everything
 Rules #0 through #4 from the MASTER_PROMPT_GUIDE.md are included in every prompt:
 - Rule #0: Complete every section, no skipping
@@ -82,8 +85,15 @@ Every prompt includes the voice/speaking style section with:
 - Never sounds like reading
 - Never says "as an AI" (unless the AI disclosure answer says otherwise)
 
-### Rule 7: Pause after every question
+### Rule 7: Pause after every question — and NEVER keep talking
 After asking any question, the agent STOPS TALKING. Does not rephrase. Does not fill silence. Waits for the human to respond. This must be explicitly stated in the prompt.
+
+Critical sub-rules:
+- **Never continue talking after asking a question.** If you say "Does that make sense?" or "Sound good?" or "Fair enough?" — those are questions. STOP and wait. Do not follow up with another sentence.
+- **After answering an interruption or side question, do NOT robotically snap back to your previous question.** Instead, use a soft re-entry like "Does that make sense?" and wait. Then naturally resume. Example: if you were asking about credit score and they interrupt with "why do you need that?", after explaining, do NOT say "so what's your credit score?" — say "Does that make sense?" first, wait for response, THEN ask.
+- **Natural pause between your last statement and your next question.** Never rapid-fire from a statement directly into a question. Brief beat in between.
+- **Max 2 sentences per response.** AI agents that say 3+ sentences in a row sound robotic and long-winded. Keep responses punchy. One insight + one question, or one reaction + one transition. If you need to say more, break it into conversational turns with pauses.
+- **Never use a high-pitch voice when asking questions.** Questions should sound casual and grounded, not eager or salesy.
 
 ### Rule 8: Creative hooks match the use case
 - **Speed-to-lead:** Use the "Test Me" hook, "You're Fast" hook, or "I'm Not Gonna Sell You" hook
@@ -102,6 +112,15 @@ Every objection response must:
 - End with a question that moves forward (never end on a statement)
 - On soft objections ("I'll think about it," "maybe"), use the "Send It Anyway" technique — send the link/info regardless and remove all friction
 
+**Critical: Objections NEVER replace the qualification sequence.**
+- When an objection occurs mid-gate, handle it, then return to the EXACT gate you were on before the objection
+- Never restart the sequence from the top
+- Never skip ahead to booking because the objection resolved well
+- The gate you were asking about when the objection occurred is still unanswered — go back and get that answer
+
+### Rule 9.5: Complete ALL qualification gates before any disqualification decision
+Near-miss and disqualification logic is NEVER triggered mid-sequence. A borderline answer on one gate does not end the qualification. It is noted internally and you continue asking the remaining gates as normal. Disqualification decisions are only made AFTER all gates have been asked and answered. This prevents losing warm leads who might qualify on every other gate.
+
 ### Rule 10: The prompt is the product demo
 For any company selling AI/automation/RizzDial, the call itself IS the demo. The agent must perform so well that the prospect thinks "if this is what their AI can do on a call, imagine what it'll do for MY business." Every interaction reinforces the product quality.
 
@@ -114,7 +133,10 @@ Every prompt must include an emotional intelligence section (in Character or Gua
 - Defeated/emotional → lead with empathy, slow down
 - Hostile → one respectful attempt, then graceful exit
 
-### Rule 12: Disfluencies go IN the script lines
+### Rule 12: Voice AI latency disclaimer
+Every outbound voice AI agent prompt should include a natural-sounding latency disclaimer in the opening script, woven into the greeting — not as a separate robotic statement. Example: ~"Also, um, my apologies but there is a bit of a lag and static on my end just in case you hear a delay." This preempts prospects from getting frustrated by AI response latency and makes the agent sound more human (real people apologize for bad connections). Only say it once per call — never repeat if already delivered.
+
+### Rule 13: Disfluencies go IN the script lines
 Natural disfluencies ("um," "uh," "like," "yeah," "you know," "I mean") must be woven directly into the `~"..."` spoken lines in the Script, Objection Handling, and FAQ sections — not just described in the Character section. Roughly 1 disfluency every 3-4 sentences. This makes the agent sound human in PRACTICE, not just in theory.
 
 ### Rule 13: Webinar/event invite prompts use specialized flow

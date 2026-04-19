@@ -28,6 +28,8 @@
 
 - **iPhone Call Screening** (`MODULE-iphone-call-screening.md`) — Goes in **Critical Instructions / Guardrails**. Detects Apple iOS call screening, responds with name only, waits silently for a live human, and never pitches a robot. Required for all outbound agents.
 - **Sales Psychology Hooks** (`MODULE-sales-psychology-hooks.md`) — Reference library of openers, frameworks (Hormozi, Belfort, Sandler, SPIN, Cialdini, Voss), and mid-call power moves. Pull hooks from here into **Greetings** and **Script** sections.
+- **Industry Discovery Questions** (`MODULE-industry-discovery-questions.md`) — Industry-specific discovery questions, pricing deflections, and consequence questions for 6 verticals (B2B SaaS, Insurance, HVAC/Home Services, Marketing Agency, Medical/Wellness, Real Estate). Pull from here into **Script** qualification sections. Includes universal consultative structure for unlisted verticals.
+- **GHL Booking Flow** (`MODULE-ghl-booking-flow.md`) — Standard GHL calendar booking flow. Drop into **Booking flow** section for any prompt that books appointments.
 
 ## Generation System
 
