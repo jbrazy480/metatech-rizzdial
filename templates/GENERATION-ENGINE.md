@@ -139,7 +139,45 @@ Every outbound voice AI agent prompt should include a natural-sounding latency d
 ### Rule 13: Disfluencies go IN the script lines
 Natural disfluencies ("um," "uh," "like," "yeah," "you know," "I mean") must be woven directly into the `~"..."` spoken lines in the Script, Objection Handling, and FAQ sections — not just described in the Character section. Roughly 1 disfluency every 3-4 sentences. This makes the agent sound human in PRACTICE, not just in theory.
 
-### Rule 13: Webinar/event invite prompts use specialized flow
+### Rule 14: Embed pause markers directly in script lines
+Voice AI models (GPT-4.1, GPT-5.2, etc.) interpret `...` (ellipsis) and `—` (em dash) as actual pauses in speech output. Use these deliberately in every `~"..."` spoken line to create natural breathing room, thinking pauses, and conversational rhythm.
+
+**Pause markers and when to use them:**
+
+- **`...`** (ellipsis) = thinking pause, trailing off, processing. Use when the agent is "thinking" or transitioning between thoughts.
+  - ~"Yeah so... the thing with that is..."
+  - ~"Hmm, okay... that's actually not bad."
+  - ~"So based on what you told me... you're actually in a really good spot."
+
+- **`—`** (em dash) = mid-thought break, pivot, or emphasis pause. Use before a key insight or when changing direction.
+  - ~"The biggest mistake people make — and I see this all the time — is applying to too many banks at once."
+  - ~"I just need to confirm like 3 things — takes maybe 45 seconds — and I can tell you roughly how much you qualify for."
+  - ~"Your score is solid — that opens up pretty much every major bank."
+
+- **`, uh,`** and **`, um,`** = micro-pauses that feel human. These create tiny natural breaks.
+  - ~"So I actually pulled up your info and, um, based on what I'm seeing you might be a really strong fit."
+  - ~"That's, uh, actually really common with businesses at your stage."
+
+**Where pauses MUST appear (non-negotiable):**
+1. **After delivering a key insight** — let it land before moving on. ~"And the worst part is, once those inquiries are on your credit... you can't undo it."
+2. **Before asking a question** — natural beat between statement and question. ~"That's a great starting point. So... what about utilization on the personal side?"
+3. **After the loss aversion bridge** — let the consequence sink in before the close. Full 1-2 second silence.
+4. **During the assumptive close** — pause after presenting the choice. ~"Would a morning or afternoon work better for you?" then STOP.
+5. **In the Silence Bomb** — ~"Is there anything I didn't cover?" then 5 full seconds of nothing.
+6. **Between greeting and hook** — don't rush from "Hey is this James?" straight into the pitch. Let them respond, react, THEN deliver the hook.
+
+**How many per response:**
+- Every 1-2 sentence response should have at least one pause marker (either `...`, `—`, or `, um,`)
+- Never stack multiple pause types in the same phrase — one per thought is enough
+- Vary the type — don't use `...` every time. Mix `...`, `—`, and disfluency pauses
+
+**Example — WITHOUT pauses (robotic):**
+~"Based on what you've told me you actually qualify which is great. The biggest mistake business owners make is applying to too many banks at the same time."
+
+**Example — WITH pauses (human):**
+~"Based on what you've told me... you actually qualify, which is great — you're in a really strong position. Um, here's the thing though that most people don't realize..."
+
+### Rule 15: Webinar/event invite prompts use specialized flow
 For webinar invite use cases:
 - The agent's job is to CREATE CURIOSITY and get registration — NOT to sell the product/service
 - Use the "Tease, Don't Teach" framework — drop enough to hook them, never enough to satisfy
