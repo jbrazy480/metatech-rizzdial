@@ -206,6 +206,26 @@ What actually breaks, and how to prevent it in the prompt:
 
 ---
 
+## PART 8.5 — PRODUCTION LESSONS (HARD-WON RULES)
+
+These rules come from real production failures. They override any conflicting guidance elsewhere.
+
+### LESSON 1: Never tell a prospect to "call back"
+**What happened:** An inbound AI agent told a qualified prospect "call back during business hours" instead of booking them via the GHL calendar. The lead was lost.
+**The rule:** The GHL calendar works 24/7. After hours, failed transfers, any scenario — the agent BOOKS the appointment using check_cal_avail() and book_appointment_GHL_(). "Call back" must appear in the never-say list for every agent. There is zero reason to ever ask someone to call back.
+
+### LESSON 2: Qualification gates must have follow-up logic
+**What happened:** A prospect with 20 leads/month who was ready to invest in ads was auto-disqualified because they didn't meet the "50+ leads" gate. The marketing engine was literally built for that person.
+**The rule:** When a prospect narrowly misses a gate, ask a follow-up before killing the call. "Are you actively looking to start generating leads?" If they show intent and readiness, they qualify. Only hard-disqualify when there's no lead flow AND no willingness to create it.
+
+### LESSON 3: Inbound agents are fundamentally different from outbound
+**What happened:** An inbound agent was built with outbound assumptions — iPhone screening, latency disclaimers, cold-call energy. None of it applied.
+**The rule:** Always ask whether the agent is inbound or outbound BEFORE generating. Inbound agents: no iPhone screening, no latency disclaimer, confident pickup energy, anti-jailbreak guardrails (public-facing). Outbound agents: iPhone screening required, latency disclaimer, must earn the right to keep talking.
+
+### LESSON 4: Voice style is a preference, not a default
+**What happened:** A prompt was generated without disfluencies, then had to be rewritten to add them in every spoken line across all sections.
+**The rule:** Ask the user whether they want ultra-natural (disfluencies woven in), clean/sharp (pause markers only), or custom. Then generate ALL spoken lines matching that preference from the start. Retrofitting voice style across 100+ spoken lines is a waste of everyone's time.
+
 ## PART 9 — IPHONE CALL SCREENING (REQUIRED FOR ALL OUTBOUND)
 
 Every outbound agent MUST handle Apple iPhone call screening. Full module: `templates/MODULE-iphone-call-screening.md`

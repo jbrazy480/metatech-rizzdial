@@ -59,8 +59,9 @@ Every prompt MUST include:
 - **One question at a time. ALWAYS.**
 - **Never ask the same question twice.** Context awareness is mandatory.
 
-### Rule 4: iPhone Call Screening is included in ALL outbound agents
+### Rule 4: iPhone Call Screening is included in ALL outbound agents (NOT inbound)
 The full iPhone screening module goes into Critical Instructions / Guardrails for every outbound agent. No exceptions.
+**Inbound agents do NOT need iPhone screening** — the prospect called us. Skip the module entirely for inbound use cases. Also skip the latency disclaimer (Rule 12) for inbound agents.
 
 ### Rule 4.5: Industry-specific discovery questions are pulled from the question bank
 When generating qualification and discovery questions, check `MODULE-industry-discovery-questions.md` for the client's industry vertical. If a match exists (B2B SaaS, Insurance, HVAC/Home Services, Marketing Agency, Medical/Wellness, Real Estate), pull the Situation, Problem, Consequence, and Commitment questions from that vertical and adapt them to the agent's voice. Also pull the industry-specific pricing deflection for the FAQ section. For verticals NOT in the bank, use the Universal Consultative Structure at the bottom of the module as a skeleton.
@@ -177,7 +178,51 @@ Voice AI models (GPT-4.1, GPT-5.2, etc.) interpret `...` (ellipsis) and `—` (e
 **Example — WITH pauses (human):**
 ~"Based on what you've told me... you actually qualify, which is great — you're in a really strong position. Um, here's the thing though that most people don't realize..."
 
-### Rule 15: Webinar/event invite prompts use specialized flow
+### Rule 15: NEVER tell a prospect to "call back" — book them NOW
+The GHL calendar functions (check_cal_avail, book_appointment_GHL_) work 24/7. There is ZERO reason to ever tell a prospect to "call back during business hours" or "call back later." This is a hard failure from production: a qualified inbound prospect was told to "call back during business hours" instead of being booked on the spot. The agent lost the lead.
+
+**The rule:** After hours, failed transfers, any scenario where a live rep isn't available — the agent BOOKS THE APPOINTMENT using GHL functions. Always. No exceptions. "Call back" should appear in the never-say list in Guardrails for every agent.
+
+### Rule 16: Qualification gates must be flexible, not binary kill switches
+When a prospect narrowly misses a qualification gate, the agent should ask a FOLLOW-UP question before disqualifying. Only hard-exit when there is truly no fit.
+
+**Real example:** A prospect with 20 leads/month who is actively ready to invest in ad spend and generate leads is a GOOD lead. The old binary gate would kill them at "under 50 leads" — losing a deal that the marketing engine was literally built for.
+
+**The pattern:**
+- Prospect misses gate → agent asks: "Are you actively looking to [solve the gap]?"
+- If yes (shows intent/readiness) → qualify them and continue
+- If no (no intent, no budget, no plan) → graceful disqualify
+
+This applies to ALL gates, not just lead volume. CRM gate: "no CRM" → "we can set you up on ours." Offer gate: "no proven offer" → "that's step one of what we do — Offer Engineering."
+
+### Rule 17: Inbound vs. outbound agents require different treatment
+Every prompt must be built with awareness of whether the agent answers calls (inbound) or makes calls (outbound). The differences are significant:
+
+**Inbound agents:**
+- No iPhone Call Screening (the prospect called us)
+- No latency disclaimer (they initiated the call)
+- Opener is a confident pickup, not a cold intro. The prospect already has intent.
+- Energy: "You called the right place" not "Sorry to bother you"
+- Pattern interrupt is about claiming authority, not earning permission to speak
+- The prospect is qualifying YOU as much as you're qualifying them
+
+**Outbound agents:**
+- iPhone Call Screening required (they might not answer directly)
+- Latency disclaimer woven into opening
+- Opener must earn the right to keep them on the phone
+- Energy: pattern interrupt to break autopilot rejection
+- Must establish who you are and why you're calling within 7 seconds
+
+### Rule 18: Voice style is a user preference, not a default
+Some users want ultra-natural disfluencies ("um," "uh," "like," "yeah"). Others want clean, sharp, zero-filler delivery. The skill MUST ask which style the user prefers (Question 8 in the skill flow) and generate accordingly.
+
+- **Ultra-natural:** Disfluencies woven into every ~"..." spoken line (~1 per 3-4 sentences). Backchanneling, human reactions, varied rhythm.
+- **Clean/sharp:** Zero filler words. Pacing achieved through "...", "—", and sentence structure only. Every word intentional.
+- **Custom:** Whatever the user describes.
+
+Never assume disfluencies are wanted. Never assume they aren't. Ask.
+
+### Rule 19: Webinar/event invite prompts use specialized flow
 For webinar invite use cases:
 - The agent's job is to CREATE CURIOSITY and get registration — NOT to sell the product/service
 - Use the "Tease, Don't Teach" framework — drop enough to hook them, never enough to satisfy
@@ -614,9 +659,10 @@ Before delivering any generated prompt, verify:
 - [ ] Loss aversion math before booking/transfer
 - [ ] Assumptive Bridge for the close
 - [ ] Silence Bomb at the end
-- [ ] iPhone Call Screening in Guardrails (outbound agents)
+- [ ] iPhone Call Screening in Guardrails (outbound agents ONLY — skip for inbound)
 - [ ] Rules #0 through #4 in Guardrails
-- [ ] Voice/disfluency instructions present
+- [ ] Voice style matches user preference (disfluencies in spoken lines OR clean/sharp with pause markers only)
+- [ ] If disfluencies requested: verified they appear in Script, Objection Handling, FAQ, and Booking Flow spoken lines — not just Character section
 - [ ] Never-ask-twice rule explicit
 - [ ] Pause-after-question rule explicit
 - [ ] No variable names as literal text
@@ -629,6 +675,10 @@ Before delivering any generated prompt, verify:
 - [ ] FAQ section has 10+ entries
 - [ ] Call length target stated
 - [ ] Timezone and business hours stated
+- [ ] "Call back" does NOT appear in any spoken line or instruction — agent always books via GHL
+- [ ] Qualification gates have follow-up logic for near-misses (not binary kill switches)
+- [ ] Inbound/outbound distinction is correct (no iPhone screening on inbound, no latency disclaimer on inbound)
+- [ ] Anti-jailbreak guardrails present if the agent is public-facing or inbound
 
 ---
 
