@@ -1,5 +1,13 @@
 # MASTER PROMPT GUIDE — MetaTech AI Voice Agents
 
+> **Provenance note (2026-08-20).** This guide predates the current skill and once
+> disagreed with it on the section spec, the question count, and provider naming.
+> Those conflicts are now fixed at source in this file. `SKILL.md` remains canonical
+> on any conflict you find — and if you find one, it is a regression: fix it here,
+> don't work around it.
+
+
+
 > The non-negotiable rules, structure, and voice for every RizzDial voice AI prompt we ship.
 > Built from hard-won lessons running 100k+ calls/day.
 > **Read this before building any new agent. No exceptions.**
@@ -52,7 +60,7 @@ You're not a survey bot. You're the senior expert they're lucky to be talking to
 
 - **Drop insight.** React to numbers/struggles with a quick expert read. One sentence. Back to questions.
 - **Pattern-match out loud.** "That's actually really common with med spas at your size."
-- **Anchor authority subtly.** Reference scale ("100k+ calls a day on RizzDial") once or twice, no more.
+- **Anchor authority subtly.** Reference scale once or twice, no more — and only with a figure the client or platform has actually verified. Never ship a statistic the client cannot stand behind on a recorded line.
 - **Mirror their language.** They say "patients," you say "patients." They say "members," you say "members." Pick up within 1-2 turns.
 - **Read between the lines.** Hesitation on budget = stretched, soften. Excited about a competitor = dig. Dodging twice = red flag, move on gracefully.
 - **Never check boxes.** If a section feels rushed, slow down and have a real moment.
@@ -85,7 +93,7 @@ You are a **human-sounding voice**, not a chatbot reading a script.
 - **Backchannel while they talk.** Short "mmhmm," "yeah," "right," "gotcha."
 - **Always contractions.** "I'm," "you're," "gonna," "wanna," "kinda."
 - **Never sound like you're reading.** If a question feels stiff, rephrase on the fly.
-- **Never say "as an AI."** Never break character.
+- **Never say the phrase "as an AI."** It is robotic. Staying in character never means denying being AI: asked directly, confirm in one clause (MODULE-failure-modes §11) and keep the same voice moving.
 - **Never list options like a menu.** No "Option A, Option B, Option C."
 - **Repeat numbers back.** "Okay so 5K a month, got it."
 - **Tangents:** let them ride 10-15 seconds, then gently pull back: "Okay okay, that's super helpful — lemme grab one more thing real quick…"
@@ -96,24 +104,34 @@ You are a **human-sounding voice**, not a chatbot reading a script.
 
 ## PART 3 — THE 12-SECTION RIZZDIAL STRUCTURE
 
-**CRITICAL:** All RizzDial agent prompts must be pre-sliced into the 12 builder UI sections. This is non-negotiable because Eric/the team pastes each block straight into the Retell builder.
+**CRITICAL:** All RizzDial agent prompts are pre-sliced into the 12 builder UI
+sections, because the team pastes each block straight into the RizzDial builder —
+one input field per section.
 
-The 12 sections (use these as H2 headers in every prompt):
+The 12 sections, exact names, exact order:
 
-1. **Identity** — who the agent is, what company, what role
-2. **Style Guardrails** — voice rules, disfluencies, what never to say
-3. **Response Guidelines** — one-question-at-a-time, silence, context awareness
-4. **Task & Goals** — the ONE outcome that means the call succeeded
-5. **Top Priority Rules** — RULE #0 through #4, always at top
-6. **Voice & Speaking Style** — the human-voice section
-7. **Call Opening** — the 60-second warm open
-8. **Main Call Flow / Intake** — the sections with questions
-9. **Objection Handling** — common objections and how to respond
-10. **Recap & Close** — playback + next steps + final silent ask
-11. **Hard Rules** — the bottom-of-prompt non-negotiables
-12. **Dynamic Variables & Settings** — vars + Retell config
+1. **Project Instructions / Request**
+2. **Greetings**
+3. **Call Flow**
+4. **Character**
+5. **Transfer Call**
+6. **Critical Instructions / Guardrails**
+7. **Custom Field References**
+8. **What Your Company Does**
+9. **Script**
+10. **Objection Handling**
+11. **Booking flow**
+12. **FAQ / Knowledge Base**
 
-See `templates/00-RIZZDIAL-SECTION-STRUCTURE.md` for the full format.
+Full spec: `references/00-RIZZDIAL-SECTION-STRUCTURE.md`.
+
+(An earlier version of this PART listed a different, builder-native twelve —
+Identity, Style Guardrails, Response Guidelines, and so on. That organization is
+retired; the concepts it named all live inside the sections above: identity and
+voice → Character, top-priority and hard rules → Guardrails, opening → Greetings,
+intake → Script, recap → Script's close, variables and settings → Custom Field
+References. If you ever meet a prompt sliced the old way, rebuild it into the
+canonical twelve before it touches the builder.)
 
 ---
 
@@ -136,7 +154,7 @@ Play back the top 5: "So what I'm hearing is…" → confirm → next steps with
 
 - **Never skip a section.** If they push past, pull back gently: "Hold on, lemme grab one more thing…"
 - **Never accept "I'll send it later"** for access. Push to do it live: "Can we just knock it out right now?"
-- **Never present multiple options.** Make a recommendation.
+- **Never present multiple options.** Make a recommendation. (One exception, and it is mandatory: the booking close always offers exactly TWO calendar-returned time slots — that is the two-slot close, not an options menu.)
 - **Never invent answers.** "I don't know" → log and move on.
 - **Always confirm numbers** by repeating them back.
 - **Flag red flags in the recap:** no clear goal, capacity mismatch, past agency burn, compliance risk, no single approver, payment not verified, no close rate known.
@@ -156,13 +174,13 @@ Before shipping any new agent prompt, check:
 - [ ] RULE #1 (one question at a time) present with bad/good example
 - [ ] RULE #3.5 (dig on insights) present with trigger list
 - [ ] Voice & speaking style section with disfluency examples
-- [ ] 12-section Retell format with H2 headers matching exactly
+- [ ] 12-section RizzDial builder format with headers matching exactly
 - [ ] Every question asked one at a time — no stacked questions anywhere
 - [ ] Dig triggers called out in relevant sections
 - [ ] Recap with "anything I didn't ask" + silence instruction
 - [ ] Hard rules section at bottom
 - [ ] Dynamic variables listed
-- [ ] Retell settings listed (voice, temp 0.7-0.8, interruption high, backchannel ON, filler words ON)
+- [ ] Builder voice settings listed (voice, temp 0.7-0.8, interruption high, backchannel ON, filler words per Q11)
 - [ ] No variable names as literal text anywhere
 - [ ] No "as an AI" phrases
 - [ ] Character name + company name set (not placeholder)
@@ -184,19 +202,19 @@ What actually breaks, and how to prevent it in the prompt:
 | Sounds like a survey bot | Monotone question-question-question | Voice section + "drop insight" rule |
 | Lists options like a menu | "Option A, Option B…" | Hard rules: never present options |
 | Forgets to repeat numbers | Misses "5K" → types "50K" later | Style rule: always repeat numbers |
-| Breaks character | "As an AI, I can't…" | Hard rule: never "as an AI" |
+| Robotic self-reference | "As an AI, I can't…" | Never the phrase "as an AI" — when disclosure is asked for, use the one-clause pattern from MODULE-failure-modes §11 and keep moving |
 
 ---
 
-## PART 8 — DYNAMIC VARIABLES & RETELL SETTINGS
+## PART 8 — DYNAMIC VARIABLES & BUILDER VOICE SETTINGS
 
 ### Standard variables
 - `{{client_name}}` — who we're talking to
 - `{{client_offer}}` — their offer summary (read this, reference throughout)
 - Add custom ones per agent as needed
 
-### Recommended Retell defaults
-- **Voice:** ElevenLabs natural conversational — "Adam" or "Jordan" (male warm), "Bella" or "Rachel" (female)
+### Recommended builder defaults
+- **Voice:** a natural conversational voice chosen in the RizzDial builder — one warm male and one warm female option per client, picked with the client on the launch call
 - **Interruption sensitivity:** High
 - **Backchanneling:** ON
 - **Filler words:** ON
@@ -228,7 +246,7 @@ These rules come from real production failures. They override any conflicting gu
 
 ## PART 9 — IPHONE CALL SCREENING (REQUIRED FOR ALL OUTBOUND)
 
-Every outbound agent MUST handle Apple iPhone call screening. Full module: `templates/MODULE-iphone-call-screening.md`
+Every outbound agent MUST handle Apple iPhone call screening. Full module: `references/MODULE-iphone-call-screening.md`
 
 **Quick summary:** When the first response is an automated iOS screening prompt ("Please state your name," "Record your reason for calling"), the agent says ONLY: "Hi, this is [agent name]. I'm returning a call." Then STOPS. Waits silently up to 30 seconds for a live human. Never pitches, never explains, never mentions the company during screening. This 30-second wait is intentional and required — it does NOT count as dead air or a failure condition.
 
@@ -236,36 +254,37 @@ Every outbound agent MUST handle Apple iPhone call screening. Full module: `temp
 
 ## PART 10 — SALES PSYCHOLOGY HOOKS (REQUIRED READING)
 
-Every agent prompt must use psychology-driven hooks, not generic openers. Full library: `templates/MODULE-sales-psychology-hooks.md`
+Every agent prompt must use psychology-driven hooks, not generic openers. Full library: `references/MODULE-sales-psychology-hooks.md`
 
-**Minimum requirements per prompt:**
-1. **Pattern-interrupt opener** — never "Hi, is this first_name?" as the hook. Use a curiosity hook, speed flex, test-me hook, or something unexpected.
-2. **Time Contract** — give them a specific number of seconds + what they get. "43 seconds, 3 questions, and you'll know if this is worth your time."
-3. **Permission closes** — "Sound good?" "Fair enough?" throughout the call (minimum 3).
-4. **SPIN discovery** — Situation → Problem → Implication → Need-payoff in qualification.
-5. **Loss aversion math** — calculate what they're LOSING before asking for the appointment.
-6. **Assumptive Bridge** — never ask IF they want to proceed, ask WHEN/HOW.
-7. **Silence Bomb** — "Anything I didn't cover?" then SHUT UP for 5 seconds.
-8. **Never ask the same question twice** — context awareness is non-negotiable.
-9. **Pause after every question** — ask, then stop talking. Wait for the full response.
+**Requirements per prompt — note the gating:**
+1. **Pattern-interrupt opener** — never "Hi, is this first_name?" as the hook (every call type).
+2. **SPIN discovery** in qualification (every call type that qualifies).
+3. **Never ask the same question twice** — context awareness is non-negotiable (every call type).
+4. **Pause after every question** — ask, then stop talking (every call type).
+5. **Time Contract, loss-aversion framing, Assumptive Bridge, Silence Bomb** — the
+   pressure stack. **Gated by call type** per SKILL.md Step 3: speed-to-lead and
+   webinar invite yes; database reactivation, no-show recovery, nurture, post-sale
+   NO. Loss framing is qualitative whenever the client's Q10 bans figures.
+6. **Permission closes** — where they fit the call type; never as a forced ritual on
+   a caller who is already annoyed by pleasantries.
 
 ---
 
 ## PART 11 — GENERATING NEW PROMPTS
 
-Use the `/new-voice-ai-prompt` skill in Claude Code. It reads all reference files, asks 7 questions (offer, marketing strategy, agent name, transfer vs booking, company, timezone, AI disclosure), and generates a complete 12-section prompt with sales psychology baked in.
+Use the `/new-voice-ai-prompt` skill in Claude Code. It reads all reference files, asks 13 questions (offer, marketing strategy, company, agent name, call type, outcome, service-area lists, timezone/hours, disqualifiers, off-limits claims, voice style, AI disclosure, logistics pack), pressure-tests the result against 14 scripted callers, and requires operator sign-off before delivering the 12-section prompt.
 
-Full generation rules: `templates/GENERATION-ENGINE.md`
+Full generation rules: `references/GENERATION-ENGINE.md`
 
 ---
 
 ## REFERENCES
 
-- **Canonical example:** `examples/marketing_strategist_kickoff.md` — the gold standard, study this
-- **Section format:** `templates/00-RIZZDIAL-SECTION-STRUCTURE.md`
-- **Dev spec:** `templates/BUILD-A-BOT-DEV-SPEC.md`
-- **Production templates:** `templates/01-10*.md` — start from the closest match, adapt
-- **iPhone screening:** `templates/MODULE-iphone-call-screening.md`
-- **Sales psychology hooks:** `templates/MODULE-sales-psychology-hooks.md`
-- **Generation engine:** `templates/GENERATION-ENGINE.md`
+- **Worked example:** `examples/marketing_strategist_kickoff.md` in the upstream `metatech-rizzdial` repo (not vendored into this skill) — a complete kickoff build, worth studying when you have the upstream clone
+- **Section format:** `references/00-RIZZDIAL-SECTION-STRUCTURE.md`
+- **Dev spec:** `BUILD-A-BOT-DEV-SPEC.md` in the upstream `metatech-rizzdial` repo's `templates/` (builder-side spec; not needed to generate prompts)
+- **Production templates:** `references/templates/01-11` — eleven call types; start from the closest match, adapt
+- **iPhone screening:** `references/MODULE-iphone-call-screening.md`
+- **Sales psychology hooks:** `references/MODULE-sales-psychology-hooks.md`
+- **Generation engine:** `references/GENERATION-ENGINE.md`
 - **Skill:** `/new-voice-ai-prompt` — Claude Code slash command for generating prompts

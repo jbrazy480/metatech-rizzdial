@@ -31,7 +31,12 @@ The first 7 seconds determine whether they stay or hang up. Every opener must do
 ~"Hey {{first_name}}, this is {{agent_name}}. Before I say anything else — what's going on in your business right now that made you reach out today?"
 
 **The "Speed Flex" Hook**
-~"Hey {{first_name}} — you submitted that form about 60 seconds ago. Most companies take 37 minutes to call you back. We took one. That alone should tell you something about how we operate. Got a quick sec?"
+~"Hey {{first_name}}, you submitted that form about 60 seconds ago and we called you back in one minute. That alone should tell you something about how we operate. Got a quick sec?"
+
+> The old version of this hook cited "most companies take 37 minutes" — an unsourced
+> statistic. Never ship a number the client cannot stand behind on a recorded line.
+> If the client has a verified response-time stat, use theirs; otherwise the speed
+> speaks for itself.
 
 ### No-Show Recovery Openers
 
@@ -124,7 +129,11 @@ For RizzDial agents calling on behalf of RizzDial:
 ~"By the way — you know you're talking to AI right now, right? ... Yeah. This is actually a demo of what we'd build for your business. Every lead you generate gets a call like this one within 60 seconds. How crazy is that?"
 
 For agents calling on behalf of other businesses:
-~"Here's the thing most people don't realize — the leads aren't bad. The follow-up is. 78% of buyers go with whoever responds first. If your team takes 37 minutes and your competitor takes 60 seconds... who do you think gets the deal?"
+~"Here's the thing most people don't realize, the leads aren't bad. The follow-up is. Buyers overwhelmingly go with whoever responds first. If your team takes half an hour and your competitor takes sixty seconds... who do you think gets the deal?"
+
+> ILLUSTRATIVE — the old line quoted "78% of buyers," unsourced. Substitute a
+> client-verified figure or keep it qualitative. Unsourced statistics on a recorded
+> line are a claim the client has to defend.
 
 ### Framework 8: The Assumptive Bridge (Belfort)
 

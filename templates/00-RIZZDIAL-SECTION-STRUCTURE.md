@@ -34,7 +34,7 @@
 ## Generation System
 
 - **Generation Engine** (`GENERATION-ENGINE.md`) — The complete instruction set for generating production-ready prompts. Section-by-section guide, quality checklist, and all non-negotiable rules.
-- **Skill:** `/new-voice-ai-prompt` — Claude Code slash command that walks you through generating a prompt. Asks 7 questions, reads all reference files, and outputs a complete 12-section prompt.
+- **Skill:** `/new-voice-ai-prompt` — Claude Code slash command that walks you through generating a prompt. Asks 13 questions, reads all reference files, and outputs a complete 12-section prompt.
 
 ---
 
@@ -45,7 +45,7 @@
 - Stutters and verbal tics belong in **Character**, not **Script**.
 - Qualification gates / disqualification logic belong in **Call Flow** + **Script**, with exit copy in **Objection Handling** or a dedicated subsection of **Script**.
 - Every captured field MUST appear in **Custom Field References** with its GHL mapping.
-- Every function (`ghl_calendar_availability_`, `book_appointment_GHL_`, `create_or_update_contact_GHL_`, `tag_contact_GHL_`, `disqualify_contact_GHL_`) must be referenced in **Booking flow** or **Custom Field References**.
+- Every function (`check_cal_avail` — wired in some sub-accounts as `ghl_calendar_availability_`; use exactly one name per prompt, the one actually wired — `book_appointment_GHL_`, `create_or_update_contact_GHL_`, `tag_contact_GHL_`, `disqualify_contact_GHL_`) must be referenced in **Booking flow** or **Custom Field References**.
 
 ---
 
@@ -105,7 +105,7 @@ Functions: [list]
 - "Not interested" → ~"..."
 
 === Booking flow ===
-Step 1: ghl_calendar_availability_({date})
+Step 1: check_cal_avail({date})   ← verify the wired name per sub-account
 Step 2: Offer 2 slots
 Step 3: Confirm
 Step 4: book_appointment_GHL_({time})
@@ -119,4 +119,4 @@ A: ~"..."
 
 ---
 
-**Rule going forward:** When James asks for a voice agent prompt, ALWAYS output it pre-sliced into these 12 sections, in this order, with section headers matching the builder UI exactly. Never output a monolithic prompt.
+**Rule going forward:** Whenever anyone asks for a voice agent prompt, ALWAYS output it pre-sliced into these 12 sections, in this order, with section headers matching the builder UI exactly. Never output a monolithic prompt.

@@ -60,7 +60,7 @@ This waiting period is **intentional and required.**
 - A voicemail prompt appears
 - Repeated automated prompts continue
 - No live human connects after 30 seconds
-- If you believe that a client requested that you hang up or wishes to get off the phone, **verify with the person on the other end** that they're asking you to hang up before you end the call. Hang up once you're given confirmation.
+- If a LIVE HUMAN has connected and asks you to hang up, confirm once and end. During screening itself there is no one to verify with: a screening or voicemail prompt is a machine, and MODULE-failure-modes §2 bans answering it. When in doubt mid-screening, end silently — never speak to the robot to check.
 
 ---
 
