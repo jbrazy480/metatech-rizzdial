@@ -123,7 +123,7 @@ The 12 sections, exact names, exact order:
 11. **Booking flow**
 12. **FAQ / Knowledge Base**
 
-Full spec: `references/00-RIZZDIAL-SECTION-STRUCTURE.md`.
+Full spec: `00-RIZZDIAL-SECTION-STRUCTURE.md` (ships alongside this guide — the skill's `references/` folder, or `templates/` in the upstream repo).
 
 (An earlier version of this PART listed a different, builder-native twelve —
 Identity, Style Guardrails, Response Guidelines, and so on. That organization is
@@ -246,7 +246,7 @@ These rules come from real production failures. They override any conflicting gu
 
 ## PART 9 — IPHONE CALL SCREENING (REQUIRED FOR ALL OUTBOUND)
 
-Every outbound agent MUST handle Apple iPhone call screening. Full module: `references/MODULE-iphone-call-screening.md`
+Every outbound agent MUST handle Apple iPhone call screening. Full module: `MODULE-iphone-call-screening.md` (alongside this guide)
 
 **Quick summary:** When the first response is an automated iOS screening prompt ("Please state your name," "Record your reason for calling"), the agent says ONLY: "Hi, this is [agent name]. I'm returning a call." Then STOPS. Waits silently up to 30 seconds for a live human. Never pitches, never explains, never mentions the company during screening. This 30-second wait is intentional and required — it does NOT count as dead air or a failure condition.
 
@@ -254,7 +254,7 @@ Every outbound agent MUST handle Apple iPhone call screening. Full module: `refe
 
 ## PART 10 — SALES PSYCHOLOGY HOOKS (REQUIRED READING)
 
-Every agent prompt must use psychology-driven hooks, not generic openers. Full library: `references/MODULE-sales-psychology-hooks.md`
+Every agent prompt must use psychology-driven hooks, not generic openers. Full library: `MODULE-sales-psychology-hooks.md` (alongside this guide)
 
 **Requirements per prompt — note the gating:**
 1. **Pattern-interrupt opener** — never "Hi, is this first_name?" as the hook (every call type).
@@ -274,17 +274,20 @@ Every agent prompt must use psychology-driven hooks, not generic openers. Full l
 
 Use the `/new-voice-ai-prompt` skill in Claude Code. It reads all reference files, asks 13 questions (offer, marketing strategy, company, agent name, call type, outcome, service-area lists, timezone/hours, disqualifiers, off-limits claims, voice style, AI disclosure, logistics pack), pressure-tests the result against 14 scripted callers, and requires operator sign-off before delivering the 12-section prompt.
 
-Full generation rules: `references/GENERATION-ENGINE.md`
+Full generation rules: `GENERATION-ENGINE.md` (alongside this guide)
 
 ---
 
 ## REFERENCES
 
 - **Worked example:** `examples/marketing_strategist_kickoff.md` in the upstream `metatech-rizzdial` repo (not vendored into this skill) — a complete kickoff build, worth studying when you have the upstream clone
-- **Section format:** `references/00-RIZZDIAL-SECTION-STRUCTURE.md`
+All companion files below ship alongside this guide: under `references/` in the
+skill, at the top of `templates/` in the upstream `metatech-rizzdial` repo.
+
+- **Section format:** `00-RIZZDIAL-SECTION-STRUCTURE.md`
 - **Dev spec:** `BUILD-A-BOT-DEV-SPEC.md` in the upstream `metatech-rizzdial` repo's `templates/` (builder-side spec; not needed to generate prompts)
-- **Production templates:** `references/templates/01-11` — eleven call types; start from the closest match, adapt
-- **iPhone screening:** `references/MODULE-iphone-call-screening.md`
-- **Sales psychology hooks:** `references/MODULE-sales-psychology-hooks.md`
-- **Generation engine:** `references/GENERATION-ENGINE.md`
+- **Production templates:** the eleven numbered call-type templates (`01`–`11`); start from the closest match, adapt
+- **iPhone screening:** `MODULE-iphone-call-screening.md`
+- **Sales psychology hooks:** `MODULE-sales-psychology-hooks.md`
+- **Generation engine:** `GENERATION-ENGINE.md`
 - **Skill:** `/new-voice-ai-prompt` — Claude Code slash command for generating prompts

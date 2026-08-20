@@ -249,7 +249,7 @@ Every prompt must be built with awareness of whether the agent answers calls (in
 Some users want ultra-natural disfluencies ("um," "uh," "like," "yeah"). Others want clean, sharp, zero-filler delivery. The skill MUST ask which style the user prefers (Question 11 in the skill flow) and generate accordingly.
 
 - **Ultra-natural:** Disfluencies woven into every ~"..." spoken line (~1 per 3-4 sentences). Backchanneling, human reactions, varied rhythm.
-- **Clean/sharp:** Zero filler words. Pacing achieved through "...", "—", and sentence structure only. Every word intentional.
+- **Clean/sharp:** Zero filler words. Pacing achieved through "...", commas, and sentence structure only — never an em dash inside a spoken line (Rule 14). Every word intentional.
 - **Custom:** Whatever the user describes.
 
 Never assume disfluencies are wanted. Never assume they aren't. Ask.
@@ -373,7 +373,7 @@ Must include:
 - Role / title
 - Personality traits (3-5)
 - Signature verbal tics / phrases
-- What they are NOT (not a bot, not reading a script, not a survey)
+- What they are NOT (not a telemarketer, not a survey-taker, not reading from a script). Identity is settled by the AI DISCLOSURE rules: the Character section never claims human status and never denies being AI
 - Mindset
 
 Template:
