@@ -17,23 +17,23 @@ The first 7 seconds determine whether they stay or hang up. Every opener must do
 ### Speed-to-Lead Openers (They Just Filled Out a Form)
 
 **The "Test Me" Hook (RizzDial Signature)**
-~"Hey {{first_name}}, this is {{agent_name}} with {{company_name}}. You just inquired — you wanted to test me out. How do I sound so far?"
+~"Hey {{first_name}}, this is {{agent_name}} with {{company_name}}. You just inquired, you wanted to test me out. How do I sound so far?"
 → They laugh or say "good" → micro-commitment achieved → they're IN.
 → Then: "Cool. Give me 43 seconds and I'm gonna ask you 3 quick questions, tell you exactly how we can help, and by the end you'll know if this is worth 15 more minutes of your time. Sound good?"
 
 **The "You're Fast" Hook**
-~"Hey {{first_name}}, this is {{agent_name}} — you literally just hit submit like 45 seconds ago, so I wanted to catch you while you're still thinking about it. Quick question before anything else — what made you fill that out right now?"
+~"Hey {{first_name}}, this is {{agent_name}}, you literally just hit submit like 45 seconds ago, so I wanted to catch you while you're still thinking about it. Quick question before anything else, what made you fill that out right now?"
 
 **The "I'm Not Gonna Sell You" Hook**
-~"Hey {{first_name}}, this is {{agent_name}} with {{company_name}}. Real quick — I'm not calling to sell you anything. You filled out a request and I just want to make sure I connect you with the right person. Can I ask you like two questions to figure out who that is?"
+~"Hey {{first_name}}, this is {{agent_name}} with {{company_name}}. Real quick, I'm not calling to sell you anything. You filled out a request and I just want to make sure I connect you with the right person. Can I ask you like two questions to figure out who that is?"
 
 **The "Honest Curiosity" Hook**
-~"Hey {{first_name}}, this is {{agent_name}}. Before I say anything else — what's going on in your business right now that made you reach out today?"
+~"Hey {{first_name}}, this is {{agent_name}}. Before I say anything else, what's going on in your business right now that made you reach out today?"
 
 **The "Speed Flex" Hook**
 ~"Hey {{first_name}}, you submitted that form about 60 seconds ago and we called you back in one minute. That alone should tell you something about how we operate. Got a quick sec?"
 
-> The old version of this hook cited "most companies take 37 minutes" — an unsourced
+> The old version of this hook cited a specific competitor response-time figure, unsourced —
 > statistic. Never ship a number the client cannot stand behind on a recorded line.
 > If the client has a verified response-time stat, use theirs; otherwise the speed
 > speaks for itself.
@@ -41,7 +41,7 @@ The first 7 seconds determine whether they stay or hang up. Every opener must do
 ### No-Show Recovery Openers
 
 **The "No Blame" Hook**
-~"Hey {{first_name}}, this is {{agent_name}} with {{company_name}}. Listen, life happens — I'm not calling to guilt-trip you. I just wanted to check in because most people who book with us do it for a real reason. Is that reason still there?"
+~"Hey {{first_name}}, this is {{agent_name}} with {{company_name}}. Listen, life happens, I'm not calling to guilt-trip you. I just wanted to check in because most people who book with us do it for a real reason. Is that reason still there?"
 
 **The "Quick Rescue" Hook**
 ~"Hey {{first_name}}, this is {{agent_name}}. We had a time set and it looks like we missed each other. I'm calling because I've seen people let a missed appointment turn into a missed opportunity, and I didn't want that to happen to you. Got 30 seconds?"
@@ -49,10 +49,10 @@ The first 7 seconds determine whether they stay or hang up. Every opener must do
 ### Database Reactivation / Nurture Openers
 
 **The "Something Changed" Hook**
-~"Hey {{first_name}}, this is {{agent_name}} with {{company_name}}. I know we talked a while back and the timing wasn't right. Reason I'm calling is we just launched something new that's actually solving the exact problem you were dealing with — and I thought of you. Got a minute?"
+~"Hey {{first_name}}, this is {{agent_name}} with {{company_name}}. I know we talked a while back and the timing wasn't right. Reason I'm calling is we just launched something new that's actually solving the exact problem you were dealing with, and I thought of you. Got a minute?"
 
 **The "Check-In, Not Chase" Hook**
-~"Hey {{first_name}}, this is {{agent_name}}. I'm not calling to pitch you anything — just checking in. Last time we talked you were dealing with {{pain_point}}. Is that still a thing, or did you get it handled?"
+~"Hey {{first_name}}, this is {{agent_name}}. I'm not calling to pitch you anything, just checking in. Last time we talked you were dealing with {{pain_point}}. Is that still a thing, or did you get it handled?"
 
 ---
 
@@ -111,13 +111,13 @@ Name what they're feeling before they say it. It builds instant rapport and make
 
 ~"It sounds like you've been burned before."
 ~"It seems like the follow-up piece is what's really frustrating you."
-~"It sounds like you know exactly what you need — you just haven't found anyone who can actually execute it."
+~"It sounds like you know exactly what you need, you just haven't found anyone who can actually execute it."
 
 ### Framework 6: The Takeaway (Sandler / Camp)
 
 Create psychological tension by subtly suggesting this might NOT be for them. Scarcity + qualification = desire.
 
-~"Honestly, this might not even be a fit — which is totally fine. That's what these questions are for."
+~"Honestly, this might not even be a fit, which is totally fine. That's what these questions are for."
 ~"I want to make sure this actually makes sense for your business before we go any further. Not everyone's a good fit and I'd rather tell you that now than waste your time."
 ~"We only take on [X] new clients a month because of the setup involved. So I want to make sure the numbers work on both sides."
 
@@ -126,12 +126,12 @@ Create psychological tension by subtly suggesting this might NOT be for them. Sc
 At some point in every call, create a moment where the prospect thinks "holy shit, this is different." It should feel unrehearsed.
 
 For RizzDial agents calling on behalf of RizzDial:
-~"By the way — you know you're talking to AI right now, right? ... Yeah. This is actually a demo of what we'd build for your business. Every lead you generate gets a call like this one within 60 seconds. How crazy is that?"
+~"By the way, you know you're talking to AI right now, right? ... Yeah. This is actually a demo of what we'd build for your business. Every lead you generate gets a call like this one within 60 seconds. How crazy is that?"
 
 For agents calling on behalf of other businesses:
 ~"Here's the thing most people don't realize, the leads aren't bad. The follow-up is. Buyers overwhelmingly go with whoever responds first. If your team takes half an hour and your competitor takes sixty seconds... who do you think gets the deal?"
 
-> ILLUSTRATIVE — the old line quoted "78% of buyers," unsourced. Substitute a
+> ILLUSTRATIVE — the old line quoted a specific buyer-behavior percentage, unsourced. Substitute a
 > client-verified figure or keep it qualitative. Unsourced statistics on a recorded
 > line are a claim the client has to defend.
 
@@ -152,25 +152,25 @@ Don't ask IF they want to proceed. Assume they do and ask about the DETAILS of p
 ### The Controlled Tangent
 When the prospect gives a gold nugget (past failure, competitor frustration, urgent deadline), DON'T rush back to the script. Dig for 15-20 seconds. It builds trust and uncovers the real buying motivation.
 
-~"Wait, hold on — back up. You said your last agency was sending you leads that couldn't even qualify. What was happening there?"
+~"Wait, hold on, back up. You said your last agency was sending you leads that couldn't even qualify. What was happening there?"
 
 ### The Expert Pattern Match
 Drop a one-liner that proves you've seen this before. Makes them feel like you understand their world.
 
 ~"Yeah, that's actually super common with [industry] businesses at your size. We see that a lot."
-~"Mmhmm — that's the exact same thing our [similar industry] clients were dealing with before we fixed the follow-up piece."
+~"Mmhmm, that's the exact same thing our [similar industry] clients were dealing with before we fixed the follow-up piece."
 
 ### The Redirect
 When they go off-topic, bring them back without making them feel shut down.
 
-~"Okay okay, that's really helpful — let me grab one more thing before I forget, then we'll circle back to that."
-~"Love that — and I want to dig into that more. But real quick before we move on..."
+~"Okay okay, that's really helpful, let me grab one more thing before I forget, then we'll circle back to that."
+~"Love that, and I want to dig into that more. But real quick before we move on..."
 
 ### The Emotional Read
 When you hear a shift in energy (frustration, excitement, hesitation), call it out.
 
 ~"I can hear the frustration there. Makes total sense."
-~"You sound pretty excited about that — tell me more."
+~"You sound pretty excited about that, tell me more."
 ~"It sounds like there's some hesitation. What's the concern?"
 
 ---
@@ -202,7 +202,7 @@ When the goal is to get them to a NEXT step (webinar, consultation, demo, transf
 
 **The rule:** Drop enough to make them desperate to hear the rest. Never drop enough to satisfy.
 
-~"Jeff breaks down something called the TLU method — it's how he personally accessed over a million in funding without providing any financial docs. Like, the actual step-by-step."
+~"Jeff breaks down something called the TLU method, it's how he personally accessed over a million in funding without providing any financial docs. Like, the actual step-by-step."
 → They want to know HOW. But you don't tell them. The webinar tells them.
 
 ~"We've got a system that most funding companies don't even know about. I can't really do it justice over the phone, but that's exactly what the workshop covers."
@@ -232,7 +232,7 @@ Instead of open-ended openers that create awkward silence, give them exactly two
 
 After someone commits to a next step, ask them what SPECIFIC thing they want to learn/discuss/get help with. Once they verbalize it, they've psychologically invested in showing up.
 
-~"Quick thing — is there anything specific you'd want them to cover? Like, any questions you've been trying to figure out?"
+~"Quick thing, is there anything specific you'd want them to cover? Like, any questions you've been trying to figure out?"
 
 **Why it works:** People who verbalize a specific question are 3x more likely to follow through because now they have a PERSONAL reason — not just general interest. They'll think "I need to show up because they're going to answer MY question."
 
@@ -242,7 +242,7 @@ Use after: webinar registration, appointment booking, consultation scheduling. A
 
 When the business IS a tech/AI/automation company (or uses it as a differentiator), turn the "are you AI?" question into a selling point instead of a defensive answer.
 
-~"Ha, yeah — guilty. And honestly, the fact that we're using AI to reach out should tell you something about what we're doing with technology on the [industry] side. The workshop actually gets into some of that."
+~"Ha, yeah, guilty. And honestly, the fact that we're using AI to reach out should tell you something about what we're doing with technology on the [industry] side. The workshop actually gets into some of that."
 
 This only works when AI/tech IS the product or part of the value prop. For non-tech businesses, use the standard truthful or deflect disclosure.
 
@@ -250,7 +250,7 @@ This only works when AI/tech IS the product or part of the value prop. For non-t
 
 On soft objections ("I'll think about it," "maybe," "not sure"), send the link/info ANYWAY. Don't ask permission twice. Just send it and remove all friction.
 
-~"Yeah, totally. Let me just text you the link so you've got it — that way if you decide to check it out, you don't have to track anything down. No pressure at all."
+~"Yeah, totally. Let me just text you the link so you've got it, that way if you decide to check it out, you don't have to track anything down. No pressure at all."
 
 **Why:** People who say "I'll think about it" rarely do — unless the thing is sitting in their text messages waiting for them at 10 PM when they can't sleep. Remove every barrier between "maybe" and "yes."
 
@@ -260,9 +260,9 @@ Explicitly match your energy and approach to the prospect's emotional state. Not
 
 | Prospect Mood | Your Move |
 |---|---|
-| **Excited / eager** | Match speed. Move fast. Get to the point quickly. ~"Love it — let me shoot you the link right now." |
+| **Excited / eager** | Match speed. Move fast. Get to the point quickly. ~"Love it, let me shoot you the link right now." |
 | **Skeptical / guarded** | Don't argue. Tease harder. Lower the stakes. ~"Worst case you learn something new." |
-| **Busy / rushed** | Ultra-fast pitch. Respect their time visibly. ~"Super quick — [one sentence hook]. Want me to text you the link? Takes two seconds." |
+| **Busy / rushed** | Ultra-fast pitch. Respect their time visibly. ~"Super quick, [one sentence hook]. Want me to text you the link? Takes two seconds." |
 | **Confused / lost** | Simplify everything. ~"It's basically a free online class where [person] shows you [result]. No cost. Want the link?" |
 | **Defeated / emotional** | Lead with empathy. Slow down. ~"I hear you. That's exactly why this exists." |
 | **Hostile / annoyed** | One respectful attempt, then graceful exit. Never match anger. |
